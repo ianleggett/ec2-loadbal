@@ -53,7 +53,7 @@ resource "aws_subnet" "private-subnet1" {
   }
 }
 
-resource "aws_internet_gateway" "siva-gateway" {
+resource "aws_internet_gateway" "qwatt-lb-gateway" {
   vpc_id                  = var.main_vpc
 }
 
@@ -62,7 +62,7 @@ resource "aws_route_table" "route" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.siva-gateway.id
+    gateway_id = aws_internet_gateway.qwatt-lb-gateway.id
   }
   tags = {
     Name = "route to internet"
